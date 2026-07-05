@@ -58,8 +58,12 @@ public class Butaca {
         return this.estado.equals("Disponible");
     }
 
-    public boolean puedeOcupar() {
-        return !this.estado.equals("Ocupado");
+    public boolean puedeOcupar(String usuario) {
+        if (this.estado.equals("Disponible")) return true;
+        if (this.estado.equals("Reservado")) {
+            return this.reservadoPor != null && this.reservadoPor.equals(usuario);
+        }
+        return false;
     }
 
     public boolean puedeCancelar(String usuario) {

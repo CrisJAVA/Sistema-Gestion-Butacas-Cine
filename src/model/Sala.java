@@ -65,9 +65,9 @@ public class Sala {
         return false;
     }
 
-    public boolean ocuparButaca(String codigo) {
+    public boolean ocuparButaca(String codigo, String usuario) {
         Butaca b = buscarButaca(codigo);
-        if (b != null && b.puedeOcupar()) {
+        if (b != null && b.puedeOcupar(usuario)) {
             b.ocupar();
             return true;
         }

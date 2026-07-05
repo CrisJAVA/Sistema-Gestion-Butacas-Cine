@@ -29,10 +29,10 @@ public class SalaController {
         return sala.reservarButaca(codigoAsiento, usuario);
     }
 
-    public boolean ocuparButaca(String nombreSala, String codigoAsiento) {
+    public boolean ocuparButaca(String nombreSala, String codigoAsiento, String usuario) {
         Sala sala = gestor.getSala(nombreSala);
         if (sala == null) return false;
-        return sala.ocuparButaca(codigoAsiento);
+        return sala.ocuparButaca(codigoAsiento, usuario);
     }
 
     public boolean cancelarReserva(String nombreSala, String codigoAsiento, String usuario) {

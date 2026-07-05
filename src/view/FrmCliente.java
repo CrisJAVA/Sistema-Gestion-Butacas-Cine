@@ -460,7 +460,7 @@ public class FrmCliente extends JFrame {
     private void ejecutarOcupar() {
         if (asientoSeleccionado == null || salaActual == null) return;
 
-        boolean exito = controlador.ocuparButaca(salaActual, asientoSeleccionado);
+        boolean exito = controlador.ocuparButaca(salaActual, asientoSeleccionado, "Cliente");
         if (exito) {
             JOptionPane.showMessageDialog(this,
                 "Asiento ocupado con \u00e9xito.",
@@ -468,7 +468,7 @@ public class FrmCliente extends JFrame {
             mostrarComprobante();
         } else {
             JOptionPane.showMessageDialog(this,
-                "El asiento ya est\u00e1 ocupado.",
+                "Este asiento fue reservado por otro usuario y no puede ser ocupado desde esta cuenta.",
                 "Error", JOptionPane.ERROR_MESSAGE);
         }
         actualizarSala();
