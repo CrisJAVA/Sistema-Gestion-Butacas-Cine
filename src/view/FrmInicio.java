@@ -58,15 +58,6 @@ public class FrmInicio extends JFrame {
         contenido.setBackground(COLOR_FONDO);
         contenido.setBorder(new EmptyBorder(20, 40, 20, 40));
 
-        // Ícono decorativo
-        JLabel lblIcono = new JLabel("\uD83C\uDFAC");
-        lblIcono.setFont(new Font("Segoe UI", Font.PLAIN, 56));
-        lblIcono.setHorizontalAlignment(SwingConstants.CENTER);
-        lblIcono.setAlignmentX(Component.CENTER_ALIGNMENT);
-        contenido.add(lblIcono);
-
-        contenido.add(Box.createVerticalStrut(8));
-
         // Título principal
         JLabel lblTitulo1 = new JLabel("SISTEMA DE GESTI\u00d3N");
         lblTitulo1.setFont(new Font("Segoe UI", Font.BOLD, 26));
@@ -93,15 +84,6 @@ public class FrmInicio extends JFrame {
         contenido.add(lblBienvenida);
 
         contenido.add(Box.createVerticalStrut(25));
-
-        // Logo del sistema
-        ImageIcon iconoLogoScaled = escalarImagen("src/IMG/admin-logo.png", 70, 70);
-        if (iconoLogoScaled != null) {
-            JLabel lblLogo = new JLabel(iconoLogoScaled);
-            lblLogo.setAlignmentX(Component.CENTER_ALIGNMENT);
-            contenido.add(lblLogo);
-            contenido.add(Box.createVerticalStrut(5));
-        }
 
         // Botón Cliente con imagen
         ImageIcon iconoUsrScaled = escalarImagen("src/IMG/usr-logo.png", 28, 28);

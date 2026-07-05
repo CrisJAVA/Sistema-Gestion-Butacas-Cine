@@ -13,6 +13,7 @@ public class Butaca {
     private int columna;
     private String codigo; // Identificador visible: A1, B3, C5, etc.
     private String estado; // "Disponible", "Reservado", "Ocupado"
+    private String reservadoPor; // Usuario que reservó
 
     public Butaca(int fila, int columna, String codigo) {
         this.fila = fila;
@@ -30,6 +31,14 @@ public class Butaca {
     public void reservar() {
         if (this.estado.equals("Disponible")) {
             this.estado = "Reservado";
+            this.reservadoPor = "Sistema";
+        }
+    }
+
+    public void reservar(String usuario) {
+        if (this.estado.equals("Disponible")) {
+            this.estado = "Reservado";
+            this.reservadoPor = usuario;
         }
     }
 
@@ -42,6 +51,7 @@ public class Butaca {
 
     public void liberar() {
         this.estado = "Disponible";
+        this.reservadoPor = null;
     }
 
     public boolean puedeReservar() {
@@ -52,8 +62,10 @@ public class Butaca {
         return !this.estado.equals("Ocupado");
     }
 
-    public boolean puedeCancelar() {
-        return this.estado.equals("Reservado");
+    public boolean puedeCancelar(String usuario) {
+        return this.estado.equals("Reservado")
+            && this.reservadoPor != null
+            && this.reservadoPor.equals(usuario);
     }
 
     // Getters
@@ -71,5 +83,9 @@ public class Butaca {
 
     public String getEstado() {
         return estado;
+    }
+
+    public String getReservadoPor() {
+        return reservadoPor;
     }
 }

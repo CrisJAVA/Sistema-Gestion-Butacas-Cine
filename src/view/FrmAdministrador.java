@@ -449,7 +449,7 @@ public class FrmAdministrador extends JFrame {
     private void cargarImagenes() {
         int ancho = 58;
         int alto  = 48;
-        iconoDisponible = escalarImagen("src/IMG/asiento_libre.png", ancho, alto);
+        iconoDisponible = escalarImagen("src/IMG/asiento_disponible.png", ancho, alto);
         iconoReservado  = escalarImagen("src/IMG/asiento_reservado.png", ancho, alto);
         iconoOcupado    = escalarImagen("src/IMG/asiento_ocupado.png", ancho, alto);
     }
@@ -502,7 +502,7 @@ public class FrmAdministrador extends JFrame {
 
     private void ejecutarReservar() {
         if (asientoSeleccionado == null || salaActual == null) return;
-        boolean exito = controlador.reservarButaca(salaActual, asientoSeleccionado);
+        boolean exito = controlador.reservarButaca(salaActual, asientoSeleccionado, "Administrador");
         if (exito) {
             JOptionPane.showMessageDialog(this,
                 "Reserva realizada con \u00e9xito.",
@@ -536,14 +536,14 @@ public class FrmAdministrador extends JFrame {
 
     private void ejecutarCancelar() {
         if (asientoSeleccionado == null || salaActual == null) return;
-        boolean exito = controlador.cancelarReserva(salaActual, asientoSeleccionado);
+        boolean exito = controlador.cancelarReserva(salaActual, asientoSeleccionado, "Administrador");
         if (exito) {
             JOptionPane.showMessageDialog(this,
                 "Reserva cancelada con \u00e9xito.",
                 "Cancelar", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this,
-                "No se puede cancelar. El asiento no est\u00e1 reservado.",
+                "No se puede cancelar. Este asiento no fue reservado por usted.",
                 "Error", JOptionPane.ERROR_MESSAGE);
         }
         actualizarSala();

@@ -23,10 +23,10 @@ public class SalaController {
     // =============================
     // Secuencia de instrucciones: obtener sala, validar, ejecutar.
 
-    public boolean reservarButaca(String nombreSala, String codigoAsiento) {
+    public boolean reservarButaca(String nombreSala, String codigoAsiento, String usuario) {
         Sala sala = gestor.getSala(nombreSala);
         if (sala == null) return false;
-        return sala.reservarButaca(codigoAsiento);
+        return sala.reservarButaca(codigoAsiento, usuario);
     }
 
     public boolean ocuparButaca(String nombreSala, String codigoAsiento) {
@@ -35,10 +35,10 @@ public class SalaController {
         return sala.ocuparButaca(codigoAsiento);
     }
 
-    public boolean cancelarReserva(String nombreSala, String codigoAsiento) {
+    public boolean cancelarReserva(String nombreSala, String codigoAsiento, String usuario) {
         Sala sala = gestor.getSala(nombreSala);
         if (sala == null) return false;
-        return sala.cancelarReserva(codigoAsiento);
+        return sala.cancelarReserva(codigoAsiento, usuario);
     }
 
     public Butaca getButaca(String nombreSala, String codigoAsiento) {

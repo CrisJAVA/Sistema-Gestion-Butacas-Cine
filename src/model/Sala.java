@@ -56,10 +56,10 @@ public class Sala {
         return null;
     }
 
-    public boolean reservarButaca(String codigo) {
+    public boolean reservarButaca(String codigo, String usuario) {
         Butaca b = buscarButaca(codigo);
         if (b != null && b.puedeReservar()) {
-            b.reservar();
+            b.reservar(usuario);
             return true;
         }
         return false;
@@ -74,9 +74,9 @@ public class Sala {
         return false;
     }
 
-    public boolean cancelarReserva(String codigo) {
+    public boolean cancelarReserva(String codigo, String usuario) {
         Butaca b = buscarButaca(codigo);
-        if (b != null && b.puedeCancelar()) {
+        if (b != null && b.puedeCancelar(usuario)) {
             b.liberar();
             return true;
         }
