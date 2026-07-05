@@ -1,7 +1,7 @@
 # 🎬 Sistema de Gestión de Butacas de Cine
 
 <p align="center">
-   <img src="src/IMG/banner.png" width="900">
+   <img src="src/IMG/LogoProyecto.jpg" width="900">
 </p>
 
 ---
